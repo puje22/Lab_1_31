@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        font-size: 40px;
+        padding: 10px;
+      }
+      * {
+        font-size: 40px;
+      }
+      img {
+        width: 10%;
+        border-radius: 10px;
+      }
+      #margin_top {
+        margin-top: 20px;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div>
+      <button id="btn-1" onclick="roll(1)">Тоглогч1</button>
+      <span id="score1">0</span>
+    </div>
+
+    <div>
+      <button id="btn-2" onclick="roll(2)">Тоглогч2</button>
+      <span id="score2">0</span>
+    </div>
+
+    <div id="margin_top">
+      <button id="btn-3" onclick="restart()">Reset game</button>
+    </div>
+
+    <div>
+      <img id="img1" src="./shagai_zurag/shagai-1.jpg" alt="Temee" />
+      <img id="img2" src="./shagai_zurag/shagai-2.jpg" alt="Temee" />
+      <img id="img3" src="./shagai_zurag/shagai-3.jpg" alt="Temee" />
+      <img id="img4" src="./shagai_zurag/shagai-4.jpg" alt="Temee" />
+    </div>
+
+    <div">
+      <img id="mori1" src="./shagai_zurag/shagai-1.jpg" alt="Temee" /> <br />
+      <img id="mori2" src="./shagai_zurag/shagai-1.jpg" alt="Temee" />
+    </div>
+
+    <script>
+      var score1 = 0;
+      var score2 = 0;
+      limit = 10;
+      function roll(player) {
+        var ancle1 = Math.ceil(Math.random() * 4);
+        var ancle2 = Math.ceil(Math.random() * 4);
+        var ancle3 = Math.ceil(Math.random() * 4);
+        var ancle4 = Math.ceil(Math.random() * 4);
+
+        document.getElementById("img1").src =
+          "./shagai_zurag/shagai-" + ancle1 + ".jpg";
+        document.getElementById("img2").src =
+          "./shagai_zurag/shagai-" + ancle2 + ".jpg";
+        document.getElementById("img3").src =
+          "./shagai_zurag/shagai-" + ancle3 + ".jpg";
+        document.getElementById("img4").src =
+          "./shagai_zurag/shagai-" + ancle4 + ".jpg";
+
+        if (player === 1) {
+          if (ancle1 === 1) {
+            //document.getElementById("score1").innerText = score1++;
+
+            score1++;
+          }
+          if (ancle2 === 1) {
+            score1++;
+            // score1 = score1 + 1;
+            //++score1 1
+          }
+          if (ancle3 === 1) {
+            score1++;
+          }
+          if (ancle4 === 1) {
+            score1++;
+          }
+          document.getElementById("btn-1").disabled = true;
+          document.getElementById("btn-2").disabled = false;
+          document.getElementById("score1").innerHTML = score1;
+          document.getElementById("mori1").style.marginLeft = score1 * 100 + "px";
+        }
+        
+
+        if (score1 >= limit) {
+          document.getElementById("score1").innerText = "Ta yalagch bolloo";
+        }
+        // innerText utga butsaana
+        // innerHTML element jishee div damjuulj bolno
+        if (player === 2) {
+          if (ancle1 === 1) {
+            score2++;
+          }
+          if (ancle2 === 1) {
+            score2++;
+          }
+          if (ancle3 === 1) {
+            score2++;
+          }
+          if (ancle4 === 1) {
+            score2++;
+          }
+          document.getElementById("btn-2").disabled = true;
+          document.getElementById("btn-1").disabled = false;
+        }
+        console.log("onoo2: ", score2);
+        document.getElementById("score2").innerHTML = score2;
+        document.getElementById("mori2").style.marginLeft = score2 * 100 + "px";
+
+        if (score2 >= limit) {
+          document.getElementById("score2").innerText = "Ta yalagch bolloo";
+          //   setTimeout(3000);
+          //   document.getElementById("score2").innerHTML = 0;
+        }
+
+        // if (score1 >= 10 || score2 >= 10) {
+        //   if (score1 >= 10) {
+        //     document.getElementById("score1").innerHTML = "Toglogch 1 yallaa";
+        //   }
+        // }
+        // if (score2 >= 10) {
+        //   document.getElementById("score2").innerHTML = "Toglogch 2 yallaa";
+        // }
+      }
+      function restart() {
+        score1 = 0;
+        score2 = 0;
+        document.getElementById("score1").innerText = score1;
+        document.getElementById("score2").innerText = score2;
+      }
+    </script>
+  </body>
+</html>

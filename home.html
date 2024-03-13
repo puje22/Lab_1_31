@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .nav {
+        /* text-align: center;
+        background-color: lightblue;
+        padding: 16px; */
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        height: 100px;
+      }
+      a {
+        background-color: white;
+        padding: 8px 16px;
+        border-radius: 10px;
+        text-decoration: none;
+        margin: 16px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        color: black;
+      }
+      /* a:hover {
+        background-color: color;
+        font-size: 30px;
+      } */
+
+      .main {
+        display: flex;
+        height: 300px;
+      }
+      .profile {
+        width: 30%;
+      }
+      .content {
+        width: 70%;
+      }
+      a ::selection {
+
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+      <a href="./index.html">Нүүрс</a>
+      <a onclick="document.getElementById('window')"">Зураг</a>
+      <a href="./index.html">Бислэг</a>
+      <a href="./index.html">Газрын зураг</a>
+    </div>
+
+    <div class="main">
+      <div class="profile">Profile</div>
+      <div class="content">
+        <!-- <div class="mainContent">MainContent</div> -->
+        <iframe src="./index.html" frameborder="0"></iframe>
+        <div class="address">Address</div>
+      </div>
+    </div>
+  </body>
+</html>
